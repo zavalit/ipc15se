@@ -1,0 +1,27 @@
+---
+
+  - name: Get Nginx container config data
+    copy: src=nginx.docker/ dest={{ nginx_path }}/.docker directory_mode=0777 force=yes owner={{ nginx_owner }}
+
+  - name: Get PHP Docker setup
+    copy: src=php.docker/ dest={{ silexphp_path }}/.docker directory_mode=0777 force=yes owner={{ silexphp_owner }}
+
+  - name: Download silex repo
+    git: repo=https://github.com/silexphp/Silex.git version={{ silexphp_version }} dest={{ silexphp_path }}/.docker/app update=no
+    tags: [app]
+
+  - name: Fix App perimissions
+    file: path={{ silexphp_path }}/.docker/app owner={{ devtools_owner }} group={{ nginx_owner }}
+    tags: [app]
+
+  - name: Get PHP composer container config data
+    copy: src=devtools.docker/ dest={{ devtools_path }}/.docker directory_mode=0777 force=yes owner={{ devtools_owner }}
+
+  - name: Provide docker-compose common template
+    template: src=common.yml.j2 dest=/opt/common.yml
+
+  - name: Provide docker-compose dev template 
+    template: src=docker-compose.yml.j2 dest=/opt/docker-compose.yml
+
+  - name: Provide docker-compose production template
+    template: src=production.yml.j2 dest=/opt/production.yml

@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: yes
+
+  roles:
+    - docker_ubuntu
+    - app
+
+- hosts: ipc15se
+  sudo: yes
+  tasks:
+  - name: Add vagrant user to docker group.
+    user:
+        name: vagrant
+        groups: docker
+        append: yes
+  - name: Start containers
+    shell: cd /opt && docker-compose up -d
+
+- hosts: production
+  sudo: yes
+  tasks:
+  - name: Start containers
+    shell: cd /opt && docker-compose -f production.yml up -d

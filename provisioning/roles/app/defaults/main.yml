@@ -1,0 +1,14 @@
+---
+
+# silex version
+silexphp_version: v1.3.0
+
+silexphp_path: /opt/silexphp
+silexphp_app_path: /opt/silexphp/app
+silexphp_owner: www-data
+
+nginx_path: /opt/nginx
+nginx_owner: www-data
+
+devtools_path: /opt/devtools
+devtools_owner: vagrant

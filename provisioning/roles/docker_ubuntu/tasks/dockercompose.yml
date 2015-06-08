@@ -1,0 +1,9 @@
+- name: Install docker-compose
+  shell: curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  args: 
+    creates:  /usr/local/bin/docker-compose
+
+- name: Setting permission
+  file: 
+    path: /usr/local/bin/docker-compose
+    mode: 755

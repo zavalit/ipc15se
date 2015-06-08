@@ -1,0 +1,8 @@
+silexphp:
+  build: {{ silexphp_path }}/.docker
+  hostname: ipc15se  
+
+nginx:
+  build: {{ nginx_path }}/.docker
+  ports: 
+    - "80:80"

@@ -1,0 +1,25 @@
+devtools:
+  build: {{ devtools_path }}/.docker
+
+
+silexphp:
+  extends: 
+    file: common.yml
+    service: silexphp
+  volumes: 
+    - {{ silexphp_path }}/.docker/app:/var/www
+  volumes_from:
+    - devtools
+  links:
+    - devtools:devtools
+
+nginx:
+  extends: 
+      file: common.yml
+      service: nginx
+  links:
+    - silexphp:php
+  volumes:
+    - nginxlog:/var/log/nginx
+  volumes_from:
+    - silexphp

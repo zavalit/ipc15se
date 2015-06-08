@@ -1,0 +1,13 @@
+silexphp:
+  extends: 
+    file: common.yml
+    service: silexphp
+
+nginx:
+  extends: 
+    file: common.yml
+    service: nginx
+  links:
+    - silexphp:php
+  volumes_from:
+    - silexphp
