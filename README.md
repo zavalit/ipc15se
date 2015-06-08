@@ -1,5 +1,5 @@
 # An Example Docker setup for a silexphp 
-it was created just to show some running example for "Containerize your php setup" on IPC5se
+it was created just to show some running example for "Containerize your php setup" talk on IPC15se
 
 ### Prerequiements:
 in order to get it run you need:
@@ -22,14 +22,14 @@ log you in
 
     $ vagrant ssh
 
-and let install all silexphp dependecies
+and let install all silexphp dependencies
 
     $ docker exec opt_silexphp_1 /opt/devtools/composer.phar install
 
 
 afterwords create an index.php in /opt/silexphp/.docker/app/public folder
 
-then call  http://10.20.1.11/ in browser and see what you expect to see from your index.php
+then call  http://10.20.1.11/ in your browser and see what you expect to see from your index.php
 
 
 

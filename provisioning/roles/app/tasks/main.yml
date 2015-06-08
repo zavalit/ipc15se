@@ -11,7 +11,7 @@
     tags: [app]
 
   - name: Fix App perimissions
-    file: path={{ silexphp_path }}/.docker/app owner={{ devtools_owner }} group={{ nginx_owner }}
+    file: path={{ silexphp_path }}/.docker/app owner={{ devtools_owner }} group={{ nginx_owner }} recurse=yes
     tags: [app]
 
   - name: Get PHP composer container config data
