@@ -31,5 +31,5 @@ afterwords create an index.php in /opt/silexphp/.docker/app/public folder
 
 then call  http://10.20.1.11/ in your browser and see what you expect to see from your index.php
 
-
+#### nice part: you have a php-7 docker image there, let it hacked:!  
 
