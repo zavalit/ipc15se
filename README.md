@@ -4,7 +4,7 @@ it was created just to show some running example for "Containerize your php setu
 ### Prerequiements:
 in order to get it run you need:
    - vagrant
-   - ansible-playboot
+   - ansible-playbook
 
 
 ### How-To
